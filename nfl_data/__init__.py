@@ -1,2 +1,2 @@
-__author__ = 'jamo'
+__author__ = 'jamo luhrsen'
 __email__ = 'jamo@luhrsenlounge.net'
