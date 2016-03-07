@@ -13,7 +13,7 @@ class data_normalizer(object):
 
         Args:
             col_name (string): heading to use in data for searching min
-            data (list of float-castable entries): data to search
+            data (list of dictionaries of float castable values): data to search
 
         Returns:
             float: the smallest value in data set under heading col_name
@@ -31,7 +31,7 @@ class data_normalizer(object):
 
         Args:
             col_name (string): heading to use in data for searching max
-            data (list of float-castable entries): data to search
+            data (list of dictionaries of float castable values): data to search
 
         Returns:
             float: the largest value in data set under heading col_name
@@ -44,6 +44,18 @@ class data_normalizer(object):
         return max
 
     def normalize_data(self, data):
+        """Returns a normalized copy of the data given where normalization is confined to
+           each column in the data and defined by (V - min) / (max - min).  To reiterate,
+           max and min are only from the column that V is taken from.
+
+        Args:
+            data (list of dictionaries of float castable values): data set to normalize
+
+        Returns:
+            list of dictionaries that are the normalized values from the original list of
+            dictionaries provided
+        """
+
         normalized_data = []
 
         for row in data:
