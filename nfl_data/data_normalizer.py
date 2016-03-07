@@ -9,6 +9,16 @@ class data_normalizer(object):
         pass
 
     def get_column_min(self, col_name, data):
+        """Finds the minimum value for the column found in data under the given col_name
+
+        Args:
+            col_name (string): heading to use in data for searching min
+            data (list of float-castable entries): data to search
+
+        Returns:
+            float: the smallest value in data set under heading col_name
+        """
+
         min = sys.float_info.max
         for row in data:
             if float(row[col_name]) <= min:
@@ -17,6 +27,15 @@ class data_normalizer(object):
         return min
 
     def get_column_max(self, col_name, data):
+        """Finds the maximum value for the column found in data under the given col_name
+
+        Args:
+            col_name (string): heading to use in data for searching max
+            data (list of float-castable entries): data to search
+
+        Returns:
+            float: the largest value in data set under heading col_name
+        """
         max = sys.float_info.min
         for row in data:
             if float(row[col_name]) >= max:
