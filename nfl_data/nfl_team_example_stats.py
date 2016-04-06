@@ -1,6 +1,6 @@
 __author__ = 'jamo'
 
-from nfl_stat_handler import *
+from nfl_data.nfl_stat_handler import *
 from pympler import muppy
 from pympler import summary
 

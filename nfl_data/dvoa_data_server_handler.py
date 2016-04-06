@@ -22,9 +22,9 @@ class dvoa_data_server_handler(object):
         # those values from cookies.txt over here.
         # FIXME
         cookie_key = 'SESS6eb19ca60f8d07f8010b5d3a4118be7d'
-        cookie_value = '7r6avhn77irufcbcboap6u8r64'
+        cookie_value = 'a1vnkfu9kq7bj5g7cs25o7tn26'
         self.cookies = {cookie_key : cookie_value}
-#        self.login_to_dvoa_site()
+        self.login_to_dvoa_site()
 
     def login_to_dvoa_site(self):
 
@@ -34,8 +34,10 @@ class dvoa_data_server_handler(object):
                    'op' : 'Log in'}
 
         with requests.Session() as session:
-            session.post(self.base_url + '/user', data=payload,
+            resp = session.post(self.base_url + '/user', data=payload,
                          cookies=self.cookies)
+
+            assert(resp.status_code == 200), 'trouble logging in to FO. status code : %s' % resp.status_code
 
     def get_dvoa_by_week_and_year(self, week, year):
         with requests.Session() as session:

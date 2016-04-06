@@ -1,5 +1,3 @@
-import nfl_dvoa_stats
-
 __author__ = 'jamo'
 
 from nfl_data.nfl_example_io import *

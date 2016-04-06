@@ -1,7 +1,7 @@
 __author__ = 'jamo'
 
 from nfl_data.nfl_local_data_handler import *
-from nfl_team_example_stats import *
+from nfl_data.nfl_team_example_stats import *
 import objgraph
 
 class nfl_team_season_history(object):

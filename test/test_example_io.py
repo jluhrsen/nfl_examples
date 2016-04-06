@@ -44,7 +44,7 @@ class TestExampleIO(unittest.TestCase):
         examples.append(nfl_example_maker('NYJ', 'BAL', 2004, 10))
         examples.append(nfl_example_maker('PHI', 'DAL', 2001, 3))
         examples.append(nfl_example_maker('NYG', 'ATL', 1998, 6))
-        examples.append(nfl_example_maker('DET', 'KAN', 2007, 16))
+        examples.append(nfl_example_maker('DET', 'KAC', 2007, 16))
 
         key_order = examples[0].ordered_example_keys
 
