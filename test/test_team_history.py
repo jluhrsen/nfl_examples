@@ -15,7 +15,7 @@ class TestTeamHistory(unittest.TestCase):
     def test_number_of_games_when_no_bye(self):
         '''packers in 2012 had bye in week 10'''
         game_list = \
-            self.team_history.get_games_up_to_specific_week('GNB', 2012, 9)
+            self.team_history.get_games_up_to_specific_week('GB', 2012, 9)
         self.assertEqual(len(game_list), 9)
 
     def test_number_of_games_with_bye(self):
