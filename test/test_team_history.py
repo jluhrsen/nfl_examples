@@ -1,8 +1,8 @@
+from nfl_data.nfl_team_season_history import *
+import unittest
+
 __author__ = 'jamo'
 
-from nfl_data.nfl_team_season_history import *
-
-import unittest
 
 class TestTeamHistory(unittest.TestCase):
 
@@ -13,13 +13,13 @@ class TestTeamHistory(unittest.TestCase):
         del self.team_history
 
     def test_number_of_games_when_no_bye(self):
-        '''packers in 2012 had bye in week 10'''
+        """packers in 2012 had bye in week 10"""
         game_list = \
             self.team_history.get_games_up_to_specific_week('GB', 2012, 9)
         self.assertEqual(len(game_list), 9)
 
     def test_number_of_games_with_bye(self):
-        '''jets in 2011 had bye in week 8'''
+        """jets in 2011 had bye in week 8"""
         game_list = \
             self.team_history.get_games_up_to_specific_week('NYJ', 2011, 11)
         self.assertEqual(len(game_list), 10)
