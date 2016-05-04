@@ -1,13 +1,12 @@
+from nfl_data.nfl_example_io import *
+from nfl_data.nfl_example_maker import *
+
 __author__ = 'jamo'
 
-from nfl_example_io import *
-from nfl_example_maker import *
-from data_normalizer import *
-import unittest
 
 class nfl_in_season_examples(object):
 
-    def __init__(self, season=2014, normalize_data=False):
+    def __init__(self, season=2014):
 
         self.season = season
         # can delete below if things are ok.  moved data file to nfl_local_data_handler class

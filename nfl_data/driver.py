@@ -1,10 +1,9 @@
-import time
-
-__author__ = 'jamo'
-
-from nfl_in_season_examples import *
+from nfl_data.nfl_in_season_examples import *
 from nfl_data.nfl_team_season_history import *
 from nfl_data.nfl_example_io import *
+from nfl_data.data_normalizer import *
+
+__author__ = 'jamo'
 
 '''
 for season in range(1998,2015):
@@ -128,7 +127,7 @@ examples.append(nfl_example_maker("CIN","SEA", 2015, week ))
 examples.append(nfl_example_maker("HOU","SEA", 2015, week ))
 examples.append(nfl_example_maker("KC","SEA", 2015, week ))
 '''
-examples.append(nfl_example_maker("PIT","SEA", 2015, week ))
+examples.append(nfl_example_maker("PIT", "SEA", 2015, week))
 
 csv_file = '../resources/2015_playoff_predictionsOOPS.csv'
 key_order = examples[0].ordered_example_keys
@@ -188,4 +187,4 @@ for i in range(len(normalized_data)):
 # writer.write(mins, key_order, min_max_file, 'a')
 # writer.write(maxs, key_order, min_max_file, 'a')
 
-## TODO: get back to the java side of things to create predictions with simbrain
+# TODO: get back to the java side of things to create predictions with simbrain

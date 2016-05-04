@@ -4,9 +4,8 @@ from nfl_data.nfl_stat_handler import *
 from pympler import muppy
 from pympler import summary
 
+
 class nfl_team_example_stats(object):
-
-
     def __init__(self):
         self.games_used = 0
         self.stat_dict = {}
@@ -138,63 +137,63 @@ class nfl_team_example_stats(object):
         self.OpponentGiveaways = 0.0
         self.OpponentTakeaways = 0.0
         self.OpponentTurnoverDifferential = 0.0
-        self.stats_to_average = ['ScoreQuarter1','ScoreQuarter2',\
-             'ScoreQuarter3','ScoreQuarter4','ScoreOvertime',\
-             'TimeOfPossessionMinutes','TimeOfPossessionSeconds',\
-             'TimeOfPossession','FirstDowns','FirstDownsByRushing',\
-             'FirstDownsByPassing','FirstDownsByPenalty','OffensivePlays',\
-             'OffensiveYards','OffensiveYardsPerPlay','Touchdowns',\
-             'RushingAttempts','RushingYards','RushingYardsPerAttempt',\
-             'RushingTouchdowns','PassingAttempts','PassingCompletions',\
-             'PassingYards','PassingTouchdowns','PassingInterceptions',\
-             'PassingYardsPerAttempt','PassingYardsPerCompletion',\
-             'CompletionPercentage','PasserRating','ThirdDownAttempts',\
-             'ThirdDownConversions','ThirdDownPercentage','FourthDownAttempts',\
-             'FourthDownConversions','FourthDownPercentage','RedZoneAttempts',\
-             'RedZoneConversions','GoalToGoAttempts','GoalToGoConversions',\
-             'ReturnYards','Penalties','PenaltyYards','Fumbles','FumblesLost',\
-             'TimesSacked','TimesSackedYards','QuarterbackHits',\
-             'TacklesForLoss','Safeties','Punts','PuntYards','PuntAverage',\
-             'Giveaways','Takeaways','TurnoverDifferential',\
-             'OpponentScoreQuarter1','OpponentScoreQuarter2',\
-             'OpponentScoreQuarter3','OpponentScoreQuarter4',\
-             'OpponentScoreOvertime','OpponentTimeOfPossessionMinutes',\
-             'OpponentTimeOfPossessionSeconds','OpponentTimeOfPossession',\
-             'OpponentFirstDowns','OpponentFirstDownsByRushing',\
-             'OpponentFirstDownsByPassing','OpponentFirstDownsByPenalty',\
-             'OpponentOffensivePlays','OpponentOffensiveYards',\
-             'OpponentOffensiveYardsPerPlay','OpponentTouchdowns',\
-             'OpponentRushingAttempts','OpponentRushingYards',\
-             'OpponentRushingYardsPerAttempt','OpponentRushingTouchdowns',\
-             'OpponentPassingAttempts','OpponentPassingCompletions',\
-             'OpponentPassingYards','OpponentPassingTouchdowns',\
-             'OpponentPassingInterceptions','OpponentPassingYardsPerAttempt',\
-             'OpponentPassingYardsPerCompletion',\
-             'OpponentCompletionPercentage','OpponentPasserRating',\
-             'OpponentThirdDownAttempts','OpponentThirdDownConversions',\
-             'OpponentThirdDownPercentage','OpponentFourthDownAttempts',\
-             'OpponentFourthDownConversions','OpponentFourthDownPercentage',\
-             'OpponentRedZoneAttempts','OpponentRedZoneConversions',\
-             'OpponentGoalToGoAttempts','OpponentGoalToGoConversions',\
-             'OpponentReturnYards','OpponentPenalties','OpponentPenaltyYards',\
-             'OpponentFumbles','OpponentFumblesLost','OpponentTimesSacked',\
-             'OpponentTimesSackedYards','OpponentQuarterbackHits',\
-             'OpponentTacklesForLoss','OpponentSafeties','OpponentPunts',\
-             'OpponentPuntYards','OpponentPuntAverage','OpponentGiveaways',\
-             'OpponentTakeaways','OpponentTurnoverDifferential']
+        self.stats_to_average = ['ScoreQuarter1', 'ScoreQuarter2',
+                                 'ScoreQuarter3', 'ScoreQuarter4', 'ScoreOvertime',
+                                 'TimeOfPossessionMinutes', 'TimeOfPossessionSeconds',
+                                 'TimeOfPossession', 'FirstDowns', 'FirstDownsByRushing',
+                                 'FirstDownsByPassing', 'FirstDownsByPenalty', 'OffensivePlays',
+                                 'OffensiveYards', 'OffensiveYardsPerPlay', 'Touchdowns',
+                                 'RushingAttempts', 'RushingYards', 'RushingYardsPerAttempt',
+                                 'RushingTouchdowns', 'PassingAttempts', 'PassingCompletions',
+                                 'PassingYards', 'PassingTouchdowns', 'PassingInterceptions',
+                                 'PassingYardsPerAttempt', 'PassingYardsPerCompletion',
+                                 'CompletionPercentage', 'PasserRating', 'ThirdDownAttempts',
+                                 'ThirdDownConversions', 'ThirdDownPercentage', 'FourthDownAttempts',
+                                 'FourthDownConversions', 'FourthDownPercentage', 'RedZoneAttempts',
+                                 'RedZoneConversions', 'GoalToGoAttempts', 'GoalToGoConversions',
+                                 'ReturnYards', 'Penalties', 'PenaltyYards', 'Fumbles', 'FumblesLost',
+                                 'TimesSacked', 'TimesSackedYards', 'QuarterbackHits',
+                                 'TacklesForLoss', 'Safeties', 'Punts', 'PuntYards', 'PuntAverage',
+                                 'Giveaways', 'Takeaways', 'TurnoverDifferential',
+                                 'OpponentScoreQuarter1', 'OpponentScoreQuarter2',
+                                 'OpponentScoreQuarter3', 'OpponentScoreQuarter4',
+                                 'OpponentScoreOvertime', 'OpponentTimeOfPossessionMinutes',
+                                 'OpponentTimeOfPossessionSeconds', 'OpponentTimeOfPossession',
+                                 'OpponentFirstDowns', 'OpponentFirstDownsByRushing',
+                                 'OpponentFirstDownsByPassing', 'OpponentFirstDownsByPenalty',
+                                 'OpponentOffensivePlays', 'OpponentOffensiveYards',
+                                 'OpponentOffensiveYardsPerPlay', 'OpponentTouchdowns',
+                                 'OpponentRushingAttempts', 'OpponentRushingYards',
+                                 'OpponentRushingYardsPerAttempt', 'OpponentRushingTouchdowns',
+                                 'OpponentPassingAttempts', 'OpponentPassingCompletions',
+                                 'OpponentPassingYards', 'OpponentPassingTouchdowns',
+                                 'OpponentPassingInterceptions', 'OpponentPassingYardsPerAttempt',
+                                 'OpponentPassingYardsPerCompletion',
+                                 'OpponentCompletionPercentage', 'OpponentPasserRating',
+                                 'OpponentThirdDownAttempts', 'OpponentThirdDownConversions',
+                                 'OpponentThirdDownPercentage', 'OpponentFourthDownAttempts',
+                                 'OpponentFourthDownConversions', 'OpponentFourthDownPercentage',
+                                 'OpponentRedZoneAttempts', 'OpponentRedZoneConversions',
+                                 'OpponentGoalToGoAttempts', 'OpponentGoalToGoConversions',
+                                 'OpponentReturnYards', 'OpponentPenalties', 'OpponentPenaltyYards',
+                                 'OpponentFumbles', 'OpponentFumblesLost', 'OpponentTimesSacked',
+                                 'OpponentTimesSackedYards', 'OpponentQuarterbackHits',
+                                 'OpponentTacklesForLoss', 'OpponentSafeties', 'OpponentPunts',
+                                 'OpponentPuntYards', 'OpponentPuntAverage', 'OpponentGiveaways',
+                                 'OpponentTakeaways', 'OpponentTurnoverDifferential']
         # debug stats list
         # self.stats_to_average = ['OffensiveYardsPerPlay','Touchdowns',
         #                         'RushingAttempts']
 
     def include_stats_in_average(self, team, game_stats):
-        '''
+        """
         will update this current objects average stat values with the new
         stats given in the game_stats dict.  If the team in question is
         listed as the Opponent in the game_stats, then it will need to
         apply those stats listed as Opponent stats to this objects stats
         that are not Opponent stats...  I hope this makes sense the next
         time you read it, said to self.
-        '''
+        """
         if team == game_stats['Team']:
             self.average_stats_as_team(game_stats)
         elif team == game_stats['Opponent']:
@@ -203,11 +202,11 @@ class nfl_team_example_stats(object):
             raise ValueError('team not found in Team or Opponent indexes')
 
     def average_stats_as_team(self, game_stats):
-        '''
+        """
         Will simple loop through each stat and call the real work.  no tricks.
         :param game_stats:
         :return: None
-        '''
+        """
         for stat in self.stats_to_average:
             stat_string = 'self.' + stat
             self.expand_stat_from_average_and_recalculate(stat_string,
@@ -215,10 +214,10 @@ class nfl_team_example_stats(object):
                                                           game_stats)
 
     def average_stats_as_opponent(self, game_stats):
-        '''
+        """
         In this case, we want to use the stats with 'Opponent' for this
         team, and without 'Opponent' for the *other* team
-        '''
+        """
         for stat in self.stats_to_average:
             stat_to_apply_to = stat
 
@@ -228,13 +227,13 @@ class nfl_team_example_stats(object):
                 stat_to_get_value_from = 'self.Opponent' + stat
 
             self.expand_stat_from_average_and_recalculate(stat_to_apply_to,
-                                                      stat_to_get_value_from,
-                                                      game_stats)
+                                                          stat_to_get_value_from,
+                                                          game_stats)
 
     def expand_stat_from_average_and_recalculate(self, stat_to_apply_to,
-                                                       stat_to_get_value_from,
-                                                       game_stats):
-        '''
+                                                 stat_to_get_value_from,
+                                                 game_stats):
+        """
 
         :param stat_to_apply_to: the name of the attribute which the stat
             update will be done
@@ -242,7 +241,7 @@ class nfl_team_example_stats(object):
             the actual value to apply to 'stat_to_apply_to'
         :param game_stats: dict containing all game stats
         :return: None
-        '''
+        """
         ##remove the selfie
         stat_apply_string_no_self = stat_to_apply_to.replace("self.", "")
         stat_get_string_no_self = stat_to_get_value_from.replace("self.", "")
@@ -256,7 +255,7 @@ class nfl_team_example_stats(object):
 
         # for older games, not all stats are there, so they will show up as
         # None.  For the sake of math, we'll change it to a zero.
-        if stat_handler.stat_info['value'] == None or stat_handler.stat_info['value'] == '':
+        if stat_handler.stat_info['value'] is None or stat_handler.stat_info['value'] == '':
             stat_handler.stat_info['value'] = 0
         new_total = current_total + float(stat_handler.stat_info['value'])
 

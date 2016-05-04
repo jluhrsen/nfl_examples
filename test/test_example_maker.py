@@ -14,10 +14,10 @@ class TestExampleMaker(unittest.TestCase):
         pass
 
     def test_example_has_right_data_size(self):
-        '''
+        """
         example should be the size of both teams history + two for the
         score + any more for other items (e.g. DVOA, line, OU, weather...
-        '''
+        """
 
         stats_for_example = nfl_team_example_stats()
 

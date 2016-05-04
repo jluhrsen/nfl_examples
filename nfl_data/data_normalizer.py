@@ -1,7 +1,8 @@
-__author__ = 'jamo'
-
 import csv
 import sys
+
+__author__ = 'jamo'
+
 
 class data_normalizer(object):
 
@@ -19,12 +20,12 @@ class data_normalizer(object):
             float: the smallest value in data set under heading col_name
         """
 
-        min = sys.float_info.max
+        col_min = sys.float_info.max
         for row in data:
-            if float(row[col_name]) <= min:
-                min = float(row[col_name])
+            if float(row[col_name]) <= col_min:
+                col_min = float(row[col_name])
 
-        return min
+        return col_min
 
     def get_column_max(self, col_name, data):
         """Finds the maximum value for the column found in data under the given col_name
@@ -36,12 +37,12 @@ class data_normalizer(object):
         Returns:
             float: the largest value in data set under heading col_name
         """
-        max = sys.float_info.min
+        col_max = sys.float_info.min
         for row in data:
-            if float(row[col_name]) >= max:
-                max = float(row[col_name])
+            if float(row[col_name]) >= col_max:
+                col_max = float(row[col_name])
 
-        return max
+        return col_max
 
     def normalize_data(self, data):
         """Returns a normalized copy of the data given where normalization is confined to
@@ -61,10 +62,10 @@ class data_normalizer(object):
         for row in data:
             normalized_row = {}
             for key in row.keys():
-                min = self.get_column_min(key, data)
-                max = self.get_column_max(key, data)
+                row_min = self.get_column_min(key, data)
+                row_max = self.get_column_max(key, data)
                 key_value = float(row[key])
-                normalized_value = (key_value - min) / (max - min)
+                normalized_value = (key_value - row_min) / (row_max - row_min)
                 normalized_row[key] = normalized_value
             normalized_data.append(normalized_row)
 
@@ -91,9 +92,9 @@ class data_normalizer(object):
             normalized_row = {}
             for key in row.keys():
                 key_value = float(row[key])
-                min = float(min_dict[key])
-                max = float(max_dict[key])
-                normalized_value = (key_value - min) / (max - min)
+                row_min = float(min_dict[key])
+                row_max = float(max_dict[key])
+                normalized_value = (key_value - row_min) / (row_max - row_min)
                 # this function is probably being used to normalize data that wasn't
                 # used to normalize some other data set where the min and max came from.
                 # It's possible that some

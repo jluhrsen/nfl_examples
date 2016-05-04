@@ -1,6 +1,6 @@
-__author__ = 'jamo'
-
 from nfl_data.dvoa_data_server_handler import *
+
+__author__ = 'jamo'
 
 
 class nfl_dvoa_stats(object):
@@ -44,13 +44,13 @@ class nfl_dvoa_stats(object):
         if team_name == 'SFO':
             return 'SF'
 
-        if year >= 1991 and year <= 1997:
+        if 1991 <= year <= 1997:
             if team_name == 'HOU':
                 return 'HOIL'
             if team_name == 'CLE':
                 return 'CLE1'
 
-        if year >= 1991 and year <= 1994:
+        if 1991 <= year <= 1994:
             if team_name == 'OAK':
                 return 'LARD'
             if team_name == 'STL':

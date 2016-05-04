@@ -10,8 +10,7 @@ class nfl_stat_handler(object):
 
         self.stat_info['name'] = stat_name
         # self.stat_info['value'] = stat_value
-        self.stat_info['value'] = self.massage_value_as_needed(stat_name, \
-                                                               stat_value)
+        self.stat_info['value'] = self.massage_value_as_needed(stat_name, stat_value)
 
     def massage_value_as_needed(self, name, value):
         if 'TimeOfPossession' == name or \
