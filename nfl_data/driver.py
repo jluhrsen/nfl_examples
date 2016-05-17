@@ -1,5 +1,4 @@
 from nfl_data.nfl_in_season_examples import *
-from nfl_data.nfl_team_season_history import *
 from nfl_data.nfl_example_io import *
 from nfl_data.data_normalizer import *
 

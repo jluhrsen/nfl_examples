@@ -1,8 +1,8 @@
+from nfl_data.nfl_local_data_handler import *
+import unittest
+
 __author__ = 'jamo'
 
-from nfl_data.nfl_local_data_handler import *
-
-import unittest
 
 class TestLocalDataHandler(unittest.TestCase):
 
@@ -16,7 +16,7 @@ class TestLocalDataHandler(unittest.TestCase):
     def test_get_schedules(self):
         for season in range(1985, 2015):
             schedule = self.data_handler.get_schedule(season)
-            self.assertNotEqual([],schedule, 'schedule is empty')
+            self.assertNotEqual([], schedule, 'schedule is empty')
             for i in schedule:
                 self.assertEqual(i['Season'], str(season))
 

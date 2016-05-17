@@ -1,8 +1,9 @@
-__author__ = 'jamo'
-
 from nfl_data.data_normalizer import *
 import csv
 import unittest
+
+__author__ = 'jamo'
+
 
 class TestDataNormalizer(unittest.TestCase):
 
@@ -29,19 +30,19 @@ class TestDataNormalizer(unittest.TestCase):
         normalizer = data_normalizer()
 
         col_min = normalizer.get_column_min('col1', self.data_list)
-        self.assertEqual(1,col_min)
+        self.assertEqual(1, col_min)
 
         col_min = normalizer.get_column_min('col3', self.data_list)
-        self.assertEqual(12,col_min)
+        self.assertEqual(12, col_min)
 
     def test_get_column_max_value(self):
         normalizer = data_normalizer()
 
         col_max = normalizer.get_column_max('col7', self.data_list)
-        self.assertEqual(10,col_max)
+        self.assertEqual(10, col_max)
 
         col_max = normalizer.get_column_max('col2', self.data_list)
-        self.assertEqual(80,col_max)
+        self.assertEqual(80, col_max)
 
     def test_normalize_column(self):
         normalizer = data_normalizer()

@@ -46,5 +46,5 @@ class nfl_in_season_examples(object):
             self.writer.write(season_examples[i].example_data_dict, key_order,
                               self.season_examples_file, 'a')
 
-        dict_as_read_from_csv_file = \
-            self.writer.read(key_order, self.season_examples_file)
+        # dict_as_read_from_csv_file = \
+        #     self.writer.read(key_order, self.season_examples_file)

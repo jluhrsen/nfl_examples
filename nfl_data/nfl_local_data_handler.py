@@ -1,8 +1,7 @@
+import csv
+
 __author__ = 'jamo'
 
-import csv
-import json
-import resource
 
 class nfl_local_data_handler(object):
 
@@ -43,8 +42,7 @@ class nfl_local_data_handler(object):
                                             game['Opponent'] == home_team:
                 return game
 
-        raise LookupError('trouble working on ' + home_team + ' ' + away_team \
-            + ' ' + str(week) + ' ' + str(season))
+        raise LookupError('trouble working on ' + home_team + ' ' + away_team + ' ' + str(week) + ' ' + str(season))
 
     def extract_schedule_details_from_full_game_info(self, game):
         # need to just get the basic details and make keys easier to read.

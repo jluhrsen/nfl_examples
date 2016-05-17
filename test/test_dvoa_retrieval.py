@@ -1,9 +1,8 @@
-__author__ = 'jamo'
-
-from nfl_data.dvoa_data_server_handler import *
+import unittest
 from nfl_data.nfl_dvoa_stats import *
 
-import unittest
+__author__ = 'jamo'
+
 
 class TestDvoa(unittest.TestCase):
 

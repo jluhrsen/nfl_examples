@@ -1,9 +1,10 @@
-__author__ = 'jamo'
-
 from nfl_data.nfl_example_maker import *
 from nfl_data.nfl_team_example_stats import *
 from nfl_data.nfl_dvoa_stats import *
 import unittest
+
+__author__ = 'jamo'
+
 
 class TestExampleMaker(unittest.TestCase):
 
@@ -26,8 +27,8 @@ class TestExampleMaker(unittest.TestCase):
         number_of_stats_expected = \
             len(stats_for_example.stats_to_average) * 2
         number_of_stats_expected += number_of_dvoa_stats * 2
-        number_of_stats_expected += 2 # for expected score
-        number_of_stats_expected += 2 # for home and away team
+        number_of_stats_expected += 2  # for expected score
+        number_of_stats_expected += 2  # for home and away team
 
         example = nfl_example_maker('SF', 'SEA', 2014, 13)
         # print example.example
@@ -53,8 +54,7 @@ class TestExampleMaker(unittest.TestCase):
 
     def test_examples_with_missing_stats(self):
         example = nfl_example_maker('NYG', 'ATL', 1998, 6)
-        if 'None' in example.example_data_dict.values() or \
-            None in example.example_data_dict.values():
+        if 'None' in example.example_data_dict.values() or None in example.example_data_dict.values():
             self.fail('found a none in here man!')
 
     def test_verify_dvoa_stats_in_example(self):

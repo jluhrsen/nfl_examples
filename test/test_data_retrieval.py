@@ -1,8 +1,8 @@
+from nfl_data.nfl_local_data_handler import *
+import unittest
+
 __author__ = 'jamo'
 
-from nfl_data.nfl_local_data_handler import *
-
-import unittest
 
 class TestGetAPI(unittest.TestCase):
 

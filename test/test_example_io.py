@@ -1,8 +1,8 @@
-__author__ = 'jamo'
-
 from nfl_data.nfl_example_io import *
 from nfl_data.nfl_example_maker import *
 import unittest
+
+__author__ = 'jamo'
 
 
 class TestExampleIO(unittest.TestCase):

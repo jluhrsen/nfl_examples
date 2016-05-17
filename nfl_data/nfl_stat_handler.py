@@ -1,6 +1,5 @@
 __author__ = 'jamo'
 
-from nfl_data.nfl_team_example_stats import *
 
 class nfl_stat_handler(object):
 

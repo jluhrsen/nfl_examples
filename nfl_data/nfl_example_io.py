@@ -1,6 +1,3 @@
-from nfl_data.nfl_team_season_history import *
-from nfl_data.nfl_dvoa_stats import *
-import collections
 import csv
 
 __author__ = 'jamo'

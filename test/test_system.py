@@ -1,8 +1,9 @@
-__author__ = 'jamo'
-
 from nfl_data.nfl_example_io import *
 from nfl_data.nfl_example_maker import *
 import unittest
+
+__author__ = 'jamo'
+
 
 class TestSystem(unittest.TestCase):
 
@@ -13,15 +14,14 @@ class TestSystem(unittest.TestCase):
         self.examples = []
         self.schedule = nfl_local_data_handler().get_schedule(self.season)
 
-
     def tearDown(self):
         pass
 
     # @unittest.skip("skipping because THIS TAKES FOREVER!")
     def test_examples_for_one_week_in_one_season(self):
 
-        # loop through each game a of particular week
-           # create example for each game and write to csv
+        # loop through each game a of particular week and
+        # create example for each game and write to csv
 
         for game in self.schedule:
             if game['Week'] == str(self.week_num):

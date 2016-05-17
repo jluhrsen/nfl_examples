@@ -1,8 +1,6 @@
-__author__ = 'jamo'
-
 from nfl_data.nfl_stat_handler import *
-from pympler import muppy
-from pympler import summary
+
+__author__ = 'jamo'
 
 
 class nfl_team_example_stats(object):
@@ -242,7 +240,7 @@ class nfl_team_example_stats(object):
         :param game_stats: dict containing all game stats
         :return: None
         """
-        ##remove the selfie
+        # remove the selfie
         stat_apply_string_no_self = stat_to_apply_to.replace("self.", "")
         stat_get_string_no_self = stat_to_get_value_from.replace("self.", "")
         value = game_stats[stat_get_string_no_self]
@@ -250,8 +248,7 @@ class nfl_team_example_stats(object):
 
         # need to extract current total from pre-existing average so we can
         # add new value and take new average
-        current_total = getattr(self, stat_apply_string_no_self) * \
-                        (self.games_used - 1)
+        current_total = getattr(self, stat_apply_string_no_self) * (self.games_used - 1)
 
         # for older games, not all stats are there, so they will show up as
         # None.  For the sake of math, we'll change it to a zero.
