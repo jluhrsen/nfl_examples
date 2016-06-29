@@ -39,7 +39,8 @@ class nfl_team_season_history(object):
 
         return average_stats
 
-    def get_score(self, home_team, away_team, week, season):
+    @staticmethod
+    def get_score(home_team, away_team, week, season):
         game = nfl_local_data_handler().get_game(home_team, away_team, week, season)
 
         if game['Week'] == week and game['HomeOrAway'] == 'HOME':

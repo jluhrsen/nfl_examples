@@ -9,7 +9,8 @@ class data_normalizer(object):
     def __init__(self):
         pass
 
-    def get_column_min(self, col_name, data):
+    @staticmethod
+    def get_column_min(col_name, data):
         """Finds the minimum value for the column found in data under the given col_name
 
         Args:
@@ -27,7 +28,8 @@ class data_normalizer(object):
 
         return col_min
 
-    def get_column_max(self, col_name, data):
+    @staticmethod
+    def get_column_max(col_name, data):
         """Finds the maximum value for the column found in data under the given col_name
 
         Args:
@@ -71,7 +73,8 @@ class data_normalizer(object):
 
         return normalized_data
 
-    def normalize_data_with_min_max_file(self, data, min_max_file):
+    @staticmethod
+    def normalize_data_with_min_max_file(data, min_max_file):
         normalized_data = []
 
         min_dict = {}

@@ -26,7 +26,8 @@ class nfl_dvoa_stats(object):
         return {'off_dvoa': self.off_dvoa, 'def_dvoa': self.def_dvoa,
                 'st_dvoa': self.st_dvoa}
 
-    def convert_team_name(self, team_name, year):
+    @staticmethod
+    def convert_team_name(team_name, year):
         if team_name == 'JAX':
             return 'JAC'
         if team_name == 'KAN':

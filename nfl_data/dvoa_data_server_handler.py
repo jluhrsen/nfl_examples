@@ -44,7 +44,8 @@ class dvoa_data_server_handler(object):
             dvoa = session.get(full_url, cookies=self.cookies)
             return self.extract_dvoa_dict_from_response(dvoa.text)
 
-    def extract_dvoa_dict_from_response(self, html_response):
+    @staticmethod
+    def extract_dvoa_dict_from_response(html_response):
         dvoa_dict = {}
         soup = BeautifulSoup(html_response, "html.parser")
         table = soup.find("table", {"id": "dataTable"})

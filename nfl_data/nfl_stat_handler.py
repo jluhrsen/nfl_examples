@@ -19,7 +19,8 @@ class nfl_stat_handler(object):
 
         return value
 
-    def convert_top_to_seconds(self, mins_and_secs):
+    @staticmethod
+    def convert_top_to_seconds(mins_and_secs):
         mins = mins_and_secs.split(":")[0]
         secs = mins_and_secs.split(":")[1]
         total_secs = (int(mins) * 60) + int(secs)

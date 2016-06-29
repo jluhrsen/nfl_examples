@@ -18,13 +18,12 @@ class nfl_data_server_handler(object):
     def get_response(self, resource, query):
         self.data_resource = resource
         self.query_string = query
-        self.generate_session_url()
-        resp = self.session.get(self.session.url)
+        resp = self.session.get(self.generate_session_url())
         rest_response_validation(resp)
         return resp
 
     def generate_session_url(self):
-        self.session.url = self.base_url + '/' + self.data_format + '/' + self.data_resource + '/' + self.query_string \
+        return self.base_url + '/' + self.data_format + '/' + self.data_resource + '/' + self.query_string \
                            + '?key=' + self.dev_key
 
     def get_schedule(self, season):

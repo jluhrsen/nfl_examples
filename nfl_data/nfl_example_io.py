@@ -8,14 +8,16 @@ class nfl_example_io(object):
     def __init__(self):
         pass
 
-    def create_header(self, header_keys, file):
+    @staticmethod
+    def create_header(header_keys, file):
         # if we are creating a header, going to assume we want a new file from
         # scratch
         with open(file, 'w') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=header_keys)
             writer.writeheader()
 
-    def write(self, data, data_key_order, file, file_mode):
+    @staticmethod
+    def write(data, data_key_order, file, file_mode):
         if file_mode != 'w' and file_mode != 'a':
             raise ValueError('file_mode: ' + file_mode + ' incorrect')
 
@@ -27,7 +29,8 @@ class nfl_example_io(object):
 
             writer.writerow(data)
 
-    def read(self, data_key_order, file):
+    @staticmethod
+    def read(data_key_order, file):
         with open(file) as csvfile:
             reader = csv.DictReader(csvfile, fieldnames=data_key_order)
 

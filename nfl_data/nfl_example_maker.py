@@ -20,6 +20,8 @@ class nfl_example_maker(object):
         self.dvoa_away_team = nfl_dvoa_stats().convert_team_name(away_team, season)
         self.season = season
         self.week = week
+        self.home_team_average_stats.stat_dict = {}
+        self.away_team_average_stats.stat_dict = {}
         self.home_team_history = nfl_team_season_history()
         self.away_team_history = nfl_team_season_history()
         self.dvoa_stat_handler = nfl_dvoa_stats()
@@ -60,14 +62,14 @@ class nfl_example_maker(object):
         self.example_data_dict['HOMEscore'] = str(scores['HOMEscore'])
         self.example_data_dict['AWAYscore'] = str(scores['AWAYscore'])
 
-        self.example = collections. \
-            OrderedDict(sorted(self.example_data_dict.items()))
+        self.example = collections.OrderedDict(sorted(self.example_data_dict.items()))
 
         self.ordered_example_keys = list(self.example.keys())
 
         # print 'Example:\n\n' + str(self.example)
 
-    def append_string_to_dictionary_keys(self, string, original_dict):
+    @staticmethod
+    def append_string_to_dictionary_keys(string, original_dict):
         """
         this actually will return a new dictionary with the same KV pair
         only prepending the given string to the key.

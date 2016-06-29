@@ -35,6 +35,7 @@ class nfl_in_season_examples(object):
         # previous weeks in order to make average stat calcs from.  Because of that
         # the ordered_example_keys of a first week example is not right.  we need
         # to use an example from week 2+
+        key_order = []
         for i in range(len(season_examples)):
             if season_examples[i].week >= 2:
                 key_order = season_examples[i].ordered_example_keys

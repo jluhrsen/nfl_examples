@@ -44,7 +44,8 @@ class nfl_local_data_handler(object):
 
         raise LookupError('trouble working on ' + home_team + ' ' + away_team + ' ' + str(week) + ' ' + str(season))
 
-    def extract_schedule_details_from_full_game_info(self, game):
+    @staticmethod
+    def extract_schedule_details_from_full_game_info(game):
         # need to just get the basic details and make keys easier to read.
         modified_game = game
         if game['HomeOrAway'] == 'AWAY':
