@@ -1,3 +1,4 @@
+import netrc
 import requests
 from bs4 import BeautifulSoup
 
@@ -11,12 +12,19 @@ class dvoa_data_server_handler(object):
         cookie_key = ''
         cookie_value = ''
         self.cookies = {cookie_key: cookie_value}
+        self.username = ''
+        self.password = ''
+        self.set_creds()
         self.login_to_dvoa_site()
+
+    def set_creds(self):
+        secrets = netrc.netrc()
+        self.username, account, self.password = secrets.authenticators(self.base_url)
 
     def login_to_dvoa_site(self):
 
-        payload = {'name': 'jluhrsen',
-                   'pass': 'Tk421',
+        payload = {'name': self.username,
+                   'pass': self.password,
                    'form_id': 'user_login',
                    'op': 'Log in'}
 
