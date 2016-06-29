@@ -20,8 +20,6 @@ class nfl_example_maker(object):
         self.dvoa_away_team = nfl_dvoa_stats().convert_team_name(away_team, season)
         self.season = season
         self.week = week
-        self.home_team_average_stats.stat_dict = {}
-        self.away_team_average_stats.stat_dict = {}
         self.home_team_history = nfl_team_season_history()
         self.away_team_history = nfl_team_season_history()
         self.dvoa_stat_handler = nfl_dvoa_stats()
