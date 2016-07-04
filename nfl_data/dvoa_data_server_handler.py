@@ -44,6 +44,8 @@ class dvoa_data_server_handler(object):
             dvoa = session.get(full_url, cookies=self.cookies)
             return self.extract_dvoa_dict_from_response(dvoa.text)
 
+# TODO: need a method that pulls all the dvoas and saves them locally
+
     @staticmethod
     def extract_dvoa_dict_from_response(html_response):
         dvoa_dict = {}
