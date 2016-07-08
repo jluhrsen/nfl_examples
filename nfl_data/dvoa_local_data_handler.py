@@ -18,6 +18,9 @@ class dvoa_local_data_handler(object):
                     # dvoas probably come in format nn.nn0% so need to strip those trailing 0s and %
                     value = dvoa[header].rstrip("%")
                     value = value.rstrip("0")
+                    # but if we stripped off a '0' when it was the only character after the '.' we need it back
+                    if value[-1] == '.':
+                        value += '0'
                     dvoa_dict[dvoa['Team']][header] = value
 
         return dvoa_dict
