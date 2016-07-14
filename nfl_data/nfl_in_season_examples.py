@@ -5,24 +5,22 @@ __author__ = 'jamo'
 
 
 class nfl_in_season_examples(object):
+    """
+           Class to create all examples in a given season and write to a file.
+    """
 
     def __init__(self, season=2014):
 
         self.season = season
-        # can delete below if things are ok.  moved data file to nfl_local_data_handler class
-        # self.season_stats_file = '../resources/data/1985-2015_gameData.csv'
         self.season_examples_file = '../resources/data/' + str(season) + '_examples.csv'
         self.writer = nfl_example_io()
 
     def create(self):
         # get schedule for season
         # using self.season_stats_file create all examples for the season for
-        #   as much data as we have available.
+        # as much data as we have available.
 
         schedule = nfl_local_data_handler()
-        # can delete below if things are ok.  moved data file to nfl_local_data_handler class
-        # schedule.data_file = self.season_stats_file
-
         season_matchups = schedule.get_schedule(self.season)
 
         season_examples = []
@@ -46,6 +44,3 @@ class nfl_in_season_examples(object):
         for i in range(len(season_examples)):
             self.writer.write(season_examples[i].example_data_dict, key_order,
                               self.season_examples_file, 'a')
-
-        # dict_as_read_from_csv_file = \
-        #     self.writer.read(key_order, self.season_examples_file)

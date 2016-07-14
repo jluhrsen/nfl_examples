@@ -22,7 +22,7 @@ class nfl_example_maker(object):
         self.week = week
         self.home_team_history = nfl_team_season_history()
         self.away_team_history = nfl_team_season_history()
-        self.dvoa_stat_handler = nfl_dvoa_stats()
+        self.dvoa_stat_handler = nfl_dvoa_stats(local_stats=True)
 
         # reminder, we don't want to include self.week's games, just "up to" that week.
         self.home_team_game_list = self.home_team_history.get_games_up_to_specific_week(home_team, season, week - 1)

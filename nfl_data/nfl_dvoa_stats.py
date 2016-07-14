@@ -12,7 +12,7 @@ class nfl_dvoa_stats(object):
         self.off_dvoa = '0.0'
         self.def_dvoa = '0.0'
         self.st_dvoa = '0.0'
-        if local_stats == False:
+        if not local_stats:
             self.data_handler = dvoa_data_server_handler()
         else:
             self.data_handler = dvoa_local_data_handler()

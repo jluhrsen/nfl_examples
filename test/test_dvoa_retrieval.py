@@ -103,12 +103,12 @@ class TestDvoaLocal(unittest.TestCase):
     def test_one_off_for_sf_in_2009_week_09(self):
         week_of_dvoas = self.data_handler.get_dvoa_by_week_and_year(9, 2009)
 
-        off_dvoa = week_of_dvoas['SFO']['Offense DVOA']
-        def_dvoa = week_of_dvoas['SFO']['Defense DVOA']
-        st_dvoa = week_of_dvoas['SFO']['ST DVOA']
-        w_off_dvoa = week_of_dvoas['SFO']['Weighted Offense DVOA']
-        w_def_dvoa = week_of_dvoas['SFO']['Weighted Defense DVOA']
-        w_st_dvoa = week_of_dvoas['SFO']['Weighted ST DVOA']
+        off_dvoa = week_of_dvoas['SF']['Offense DVOA']
+        def_dvoa = week_of_dvoas['SF']['Defense DVOA']
+        st_dvoa = week_of_dvoas['SF']['ST DVOA']
+        w_off_dvoa = week_of_dvoas['SF']['Weighted Offense DVOA']
+        w_def_dvoa = week_of_dvoas['SF']['Weighted Defense DVOA']
+        w_st_dvoa = week_of_dvoas['SF']['Weighted ST DVOA']
 
         msg = 'DVOA values not correct'
 
@@ -128,3 +128,5 @@ class TestDvoaLocal(unittest.TestCase):
         self.assertEqual('LARD', team_name)
         team_name = self.dvoa_stat.convert_team_name('SFO', 2009)
         self.assertEqual('SF', team_name)
+        team_name = self.dvoa_stat.convert_team_name('SDG', 2009)
+        self.assertEqual('SD', team_name)
