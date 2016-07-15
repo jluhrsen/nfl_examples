@@ -5,7 +5,7 @@ from nfl_data.data_normalizer import *
 __author__ = 'jamo'
 
 for season in range(1998,2015):
-    example_creator = nfl_in_season_examples(season)
+    example_creator = nfl_in_season_examples(season, week=3)
     example_creator.create()
 
 

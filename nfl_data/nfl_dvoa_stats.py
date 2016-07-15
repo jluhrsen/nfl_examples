@@ -8,7 +8,7 @@ class nfl_dvoa_stats(object):
 
     num_dvoa_stats = 3
 
-    def __init__(self, local_stats=False):
+    def __init__(self, local_stats=True):
         self.off_dvoa = '0.0'
         self.def_dvoa = '0.0'
         self.st_dvoa = '0.0'
