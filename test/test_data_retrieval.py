@@ -9,7 +9,7 @@ class TestGetAPI(unittest.TestCase):
     # data_handler = nfl_data_server_handler()
     data_handler = nfl_local_data_handler()
 
-    @unittest.skip("skipping because no access to NFLDATA API and because of length")
+    @unittest.skip("skipping because no access to NFLDATA API and because of test length")
     def test_get_schedules(self):
         for season in range(1985, 2015):
             schedule = self.data_handler.get_schedule(season)

@@ -4,15 +4,10 @@ from nfl_data.data_normalizer import *
 
 __author__ = 'jamo'
 
-example_creator = nfl_in_season_examples(2015, week=3)
-example_creator.create()
-
-'''
 for season in range(2014,2015):
-    example_creator = nfl_in_season_examples(season, week=3)
+    example_creator = nfl_in_season_examples(season)
     example_creator.create()
     example_creator.format_example_file()
-'''
 
 '''
 # examples = []
