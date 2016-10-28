@@ -4,25 +4,30 @@ from nfl_data.data_normalizer import *
 
 __author__ = 'jamo'
 
-for season in range(1998,2015):
+example_creator = nfl_in_season_examples(2015, week=3)
+example_creator.create()
+
+'''
+for season in range(2014,2015):
     example_creator = nfl_in_season_examples(season, week=3)
     example_creator.create()
-
+    example_creator.format_example_file()
+'''
 
 '''
 # examples = []
 # week = 17
 # examples.append(nfl_example_maker("PIT", "SEA", 2015, week))
 
-csv_file = '../resources/2015_playoff_predictionsOOPS.csv'
+csv_output_file = '../resources/2015_playoff_predictionsOOPS.csv'
 key_order = examples[0].ordered_example_keys
-nfl_example_io().create_header(key_order, csv_file)
+nfl_example_io().create_header(key_order, csv_output_file)
 
 
 # for i in range(len(examples)):
 #     print("working on home team: " + examples[i].example_data_dict['HOMEteam'])
 #     print("working on away team: " + examples[i].example_data_dict['AWAYteam'])
-#     nfl_example_io().write(examples[i].example_data_dict, key_order, csv_file, 'a')
+#     nfl_example_io().write(examples[i].example_data_dict, key_order, csv_output_file, 'a')
 
 raw_data_file = '../resources/2015_playoff_predictions.csv'
 normalized_data_file = '../resources/2015_playoff_predictions_normalized.csv'

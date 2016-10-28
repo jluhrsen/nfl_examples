@@ -29,6 +29,7 @@ class TestExampleMaker(unittest.TestCase):
         number_of_stats_expected += number_of_dvoa_stats * 2
         number_of_stats_expected += 2  # for expected score
         number_of_stats_expected += 2  # for home and away team
+        number_of_stats_expected += 2  # for season and week
 
         example = nfl_example_maker('SF', 'SEA', 2014, 13)
         # print example.example

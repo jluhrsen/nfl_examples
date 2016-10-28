@@ -8,9 +8,9 @@ __author__ = 'jamo'
 class TestSystem(unittest.TestCase):
 
     def setUp(self):
-        self.csv_file = '/tmp/csv_test_file.csv'
-        self.week_num = 9
-        self.season = 2009
+        self.csv_output_file = '/tmp/examples.csv'
+        self.week_num = 12
+        self.season = 2015
         self.examples = []
         self.schedule = nfl_local_data_handler().get_schedule(self.season)
 
@@ -35,8 +35,8 @@ class TestSystem(unittest.TestCase):
         key_order = self.examples[0].ordered_example_keys
 
         writer = nfl_example_io()
-        writer.create_header(key_order, self.csv_file)
+        writer.create_header(key_order, self.csv_output_file)
 
         for i in range(len(self.examples)):
             writer.write(self.examples[i].example_data_dict, key_order,
-                         self.csv_file, 'a')
+                         self.csv_output_file, 'a')

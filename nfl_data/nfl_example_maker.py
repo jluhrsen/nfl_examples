@@ -60,6 +60,10 @@ class nfl_example_maker(object):
         self.example_data_dict['HOMEscore'] = str(scores['HOMEscore'])
         self.example_data_dict['AWAYscore'] = str(scores['AWAYscore'])
 
+        # will probably be nice to know week and season in each example
+        self.example_data_dict['Week'] = str(self.week)
+        self.example_data_dict['Season'] = str(self.season)
+
         self.example = collections.OrderedDict(sorted(self.example_data_dict.items()))
 
         self.ordered_example_keys = list(self.example.keys())
