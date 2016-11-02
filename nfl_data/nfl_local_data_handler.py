@@ -5,7 +5,7 @@ __author__ = 'jamo'
 
 class nfl_local_data_handler(object):
 
-    def __init__(self, data_file='../resources/data/1985-2015_gameData.csv'):
+    def __init__(self, data_file='../resources/data/1985-2016_gameData.csv'):
         self.data_file = data_file
         self.game_list = []
 

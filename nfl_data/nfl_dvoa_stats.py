@@ -32,22 +32,24 @@ class nfl_dvoa_stats(object):
 
     @staticmethod
     def convert_team_name(team_name, year):
+        if team_name == 'GNB':
+            return 'GB'
         if team_name == 'JAX':
             return 'JAC'
         if team_name == 'KAN':
             return 'KC'
+        if team_name == 'LA':
+            return 'LARM'
         if team_name == 'NOR':
             return 'NO'
-        if team_name == 'TAM':
-            return 'TB'
-        if team_name == 'GNB':
-            return 'GB'
-        if team_name == 'SDG':
-            return 'SD'
         if team_name == 'NWE':
             return 'NE'
+        if team_name == 'SDG':
+            return 'SD'
         if team_name == 'SFO':
             return 'SF'
+        if team_name == 'TAM':
+            return 'TB'
 
         if 1991 <= year <= 1997:
             if team_name == 'HOU':

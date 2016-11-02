@@ -1,6 +1,7 @@
 import os
 import json
 import requests
+import netrc
 from nfl_data.nfl_rest_repsonse_handler import *
 
 __author__ = 'jamo'
@@ -8,12 +9,17 @@ __author__ = 'jamo'
 
 class nfl_data_server_handler(object):
     def __init__(self):
-        self.base_url = 'http://api.nfldata.apiphany.com/developer'
-        self.data_format = 'json'
+        self.base_url = 'https://api.fantasydata.net/v3/nfl/stats'
+        self.data_format = 'JSON'
         self.data_resource = ''
         self.query_string = ''
-        self.dev_key = os.environ['NFL_DATA_DEVELOPER_KEY']
         self.session = requests.Session()
+        self.dev_key = None
+        self.set_creds()
+
+    def set_creds(self):
+        secrets = netrc.netrc()
+        user, account, self.dev_key, = secrets.authenticators(self.base_url)
 
     def get_response(self, resource, query):
         self.data_resource = resource
@@ -23,8 +29,7 @@ class nfl_data_server_handler(object):
         return resp
 
     def generate_session_url(self):
-        return self.base_url + '/' + self.data_format + '/' + self.data_resource + '/' + self.query_string \
-                           + '?key=' + self.dev_key
+        return self.base_url + '/' + self.data_format + '/' + self.data_resource + '/' + self.query_string
 
     def get_schedule(self, season):
         resp = self.get_response('Schedules', str(season))
@@ -36,3 +41,11 @@ class nfl_data_server_handler(object):
             if game['HomeOrAway'] == 'HOME' and game['Team'] == home_team and game['Opponent'] == away_team:
                 return game
         raise LookupError('trouble working on ' + home_team + ' ' + away_team + ' ' + str(week) + ' ' + str(season))
+
+    def get_team_game_stats(self, week, season):
+        self.data_resource = 'TeamGameStats'
+        self.query_string = str(season) + '/' + str(week)
+        headers = {'Ocp-Apim-Subscription-Key': self.dev_key}
+        resp = self.session.get(self.generate_session_url(), headers=headers)
+
+        return resp.content

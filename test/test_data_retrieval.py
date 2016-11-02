@@ -1,4 +1,5 @@
 from nfl_data.nfl_local_data_handler import *
+from nfl_data.nfl_data_server_handler import *
 import unittest
 
 __author__ = 'jamo'
@@ -6,8 +7,8 @@ __author__ = 'jamo'
 
 class TestGetAPI(unittest.TestCase):
 
-    # data_handler = nfl_data_server_handler()
-    data_handler = nfl_local_data_handler()
+    data_handler = nfl_data_server_handler()
+    #data_handler = nfl_local_data_handler()
 
     @unittest.skip("skipping because no access to NFLDATA API and because of test length")
     def test_get_schedules(self):
@@ -57,3 +58,11 @@ class TestGetAPI(unittest.TestCase):
     def test_get_game_with_bad_format(self):
         with self.assertRaises(Warning):
             self.data_handler.get_game('XXX', 'YYY', 25, 'a975')
+
+    def test_check_team_game_stats_not_scrambled(self):
+        r1 = self.data_handler.get_team_game_stats(5, 2016)
+        r2 = self.data_handler.get_team_game_stats('5', 2016)
+        self.assertEquals(r1, r2, "team game stats might be scrambled")
+        r1 = self.data_handler.get_team_game_stats(15, 2011)
+        r2 = self.data_handler.get_team_game_stats(15, 2011)
+        self.assertEquals(r1, r2, "team game stats might be scrambled")

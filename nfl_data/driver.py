@@ -4,10 +4,9 @@ from nfl_data.data_normalizer import *
 
 __author__ = 'jamo'
 
-for season in range(2014,2015):
-    example_creator = nfl_in_season_examples(season)
+for season in range(2016, 2017):
+    example_creator = nfl_in_season_examples(season, 9)
     example_creator.create()
-    example_creator.format_example_file()
 
 '''
 # examples = []

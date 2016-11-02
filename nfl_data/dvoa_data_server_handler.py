@@ -7,6 +7,7 @@ __author__ = 'jamo'
 
 class dvoa_data_server_handler(object):
 
+
     def __init__(self):
         self.base_url = 'http://www.footballoutsiders.com'
         cookie_key = ''
@@ -37,12 +38,14 @@ class dvoa_data_server_handler(object):
 
     def get_dvoa_by_week_and_year(self, week, year):
         with requests.Session() as session:
-            full_url = \
-                self.base_url + \
-                '/premium/weekTeamSeasonDvoa.php?od=O&team=ARI&week=' + \
-                str(week) + '&year=' + str(year)
+            full_url = self.base_url + '/premium/oneWeek.php?od=O&year=' + str(year) + '&team=ARI&week=' + str(week)
             dvoa = session.get(full_url, cookies=self.cookies)
             return self.extract_dvoa_dict_from_response(dvoa.text)
+            # below url was working in the past, but seems to not be used any more. Above url is working.
+            # full_url = \
+            #     self.base_url + \
+            #     '/premium/weekTeamSeasonDvoa.php?od=O&team=ARI&week=' + \
+            #     str(week) + '&year=' + str(year)
 
 # TODO: need a method that pulls all the dvoas and saves them locally, currently still using
 # scrape.php tool manually and pasting data in to dvoa .csv file

@@ -11,6 +11,9 @@ class nfl_example_maker(object):
         # for so we do not include that week in the calculations for averages
         # etc.
         #
+        # this also applies for retrieving dvoa values.  If the example we are
+        # making is in week 8, then we want the dvoa values from week 7.
+        #
         # WARNING:  there will be trouble making examples if team abrevs in
         # the data set are not consistent.  So, if NWE is used, it cannot be
         # sometimes used as NE.  another example would be KAN and KC.
@@ -22,7 +25,7 @@ class nfl_example_maker(object):
         self.week = week
         self.home_team_history = nfl_team_season_history()
         self.away_team_history = nfl_team_season_history()
-        self.dvoa_stat_handler = nfl_dvoa_stats(local_stats=True)
+        self.dvoa_stat_handler = nfl_dvoa_stats(local_stats=False)
 
         # reminder, we don't want to include self.week's games, just "up to" that week.
         self.home_team_game_list = self.home_team_history.get_games_up_to_specific_week(home_team, season, week - 1)
@@ -31,7 +34,7 @@ class nfl_example_maker(object):
         self.home_team_average_stats = self.append_string_to_dictionary_keys('HOME',
                                                                              self.home_team_average_stats.stat_dict)
 
-        self.home_team_dvoa_stats = self.dvoa_stat_handler.get_dvoa_stat_dict(self.dvoa_home_team, season, week)
+        self.home_team_dvoa_stats = self.dvoa_stat_handler.get_dvoa_stat_dict(self.dvoa_home_team, season, week - 1)
         self.home_team_dvoa_stats = self.append_string_to_dictionary_keys('HOME',
                                                                           self.home_team_dvoa_stats)
 
@@ -42,7 +45,7 @@ class nfl_example_maker(object):
         self.away_team_average_stats = self.append_string_to_dictionary_keys('AWAY',
                                                                              self.away_team_average_stats.stat_dict)
 
-        self.away_team_dvoa_stats = self.dvoa_stat_handler.get_dvoa_stat_dict(self.dvoa_away_team, season, week)
+        self.away_team_dvoa_stats = self.dvoa_stat_handler.get_dvoa_stat_dict(self.dvoa_away_team, season, week - 1)
         self.away_team_dvoa_stats = self.append_string_to_dictionary_keys('AWAY', self.away_team_dvoa_stats)
 
         self.example_data_dict = self.home_team_average_stats.copy()
