@@ -6,8 +6,6 @@ __author__ = 'jamo'
 
 
 class dvoa_data_server_handler(object):
-
-
     def __init__(self):
         self.base_url = 'http://www.footballoutsiders.com'
         cookie_key = ''
@@ -34,21 +32,20 @@ class dvoa_data_server_handler(object):
             resp = session.post(self.base_url + '/user', data=payload)
             self.cookies = session.cookies.get_dict()
 
-            assert(resp.status_code == 200), 'trouble logging in to FO. status code : %s' % resp.status_code
+            assert (resp.status_code == 200), 'trouble logging in to FO. status code : %s' % resp.status_code
 
     def get_dvoa_by_week_and_year(self, week, year):
         with requests.Session() as session:
-            full_url = self.base_url + '/premium/oneWeek.php?od=O&year=' + str(year) + '&team=ARI&week=' + str(week)
+            full_url = self.base_url + '/premium/weekTeamSeasonDvoa.php?od=O&team=ARI&week=' + \
+                            str(week) + '&year=' + str(year)
             dvoa = session.get(full_url, cookies=self.cookies)
+            # backup URL to at least get DVOA data for the team that occurred in the previous week.  Not as good
+            # as the better URL that gives us the cumulative DVOA for the season UP to that week.
+            # full_url = self.base_url + '/premium/oneWeek.php?od=O&year=' + str(year) + '&team=ARI&week=' + str(week)
             return self.extract_dvoa_dict_from_response(dvoa.text)
-            # below url was working in the past, but seems to not be used any more. Above url is working.
-            # full_url = \
-            #     self.base_url + \
-            #     '/premium/weekTeamSeasonDvoa.php?od=O&team=ARI&week=' + \
-            #     str(week) + '&year=' + str(year)
 
-# TODO: need a method that pulls all the dvoas and saves them locally, currently still using
-# scrape.php tool manually and pasting data in to dvoa .csv file
+        # TODO: need a method that pulls all the dvoas and saves them locally, currently still using
+        # scrape.php tool manually and pasting data in to dvoa .csv file
 
     @staticmethod
     def extract_dvoa_dict_from_response(html_response):
