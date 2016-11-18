@@ -13,11 +13,13 @@ for season in range(2016, 2017):
 
 #STEPS:
 # 0 - update week, season values accordingly
+# 0.1 - get dvoa data
 # 1 - go get data file and copy last week's games to all season game data file
 # 2 - rename team names with proper abrev (might just be a problem with LARM)
 # 3 - run this driver with write_to_file = True
 # 4 - take resulting examples file and trim out leading columns and save
 # 5 - make sure this same resulting examples file has values for the outputs (home/away score).  0 is fine
+#     name this file "trimmed_examples.csv" - raw_data_file variable below
 # 6 - run this driver again, can put write_to_file = False if you want
 # 7 - remove header from resulting normalized example file.
 # 8 - remove AWAYScore and HOMEScore columns from same resulting normalized example file
@@ -26,7 +28,7 @@ for season in range(2016, 2017):
 
 
 examples = []
-week = 10
+week = 11
 season = 2016
 example_creator = nfl_in_season_examples(season, week)
 example_creator.write_to_file = False
