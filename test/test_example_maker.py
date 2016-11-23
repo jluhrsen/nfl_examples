@@ -68,12 +68,12 @@ class TestExampleMaker(unittest.TestCase):
         a_st = example.example_data_dict['AWAYst_dvoa']
         a_off = example.example_data_dict['AWAYoff_dvoa']
 
-        self.assertEqual(h_def, '-30.2')
-        self.assertEqual(h_st, '10.8')
-        self.assertEqual(h_off, '15.3')
-        self.assertEqual(a_def, '6.2')
-        self.assertEqual(a_st, '0.0')
-        self.assertEqual(a_off, '-9.0')
+        self.assertEqual(h_def, '-21.9')
+        self.assertEqual(h_st, '10.6')
+        self.assertEqual(h_off, '10.2')
+        self.assertEqual(a_def, '-2.6')
+        self.assertEqual(a_st, '1.6')
+        self.assertEqual(a_off, '3.4')
 
     def test_team_names_in_csv_line(self):
         example = nfl_example_maker('TAM', 'MIA', 1988, 9)
