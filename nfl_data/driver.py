@@ -18,8 +18,7 @@ for season in range(2016, 2017):
 # 1 - go get data file and copy last week's games to all season game data file
 # 2 - get dvoa data
 # 3 - ensure team abrev. are consistent with the rest of the data file
-# 4 - remove header from resulting normalized example file.
-# 5 - go run your java to process this normalized file with trained nets
+# 4 - go run your java to process this normalized file with trained nets
 
 
 def pop_or_remove_unwanted_keys(list_or_dict):
@@ -47,7 +46,7 @@ def pop_or_remove_unwanted_keys(list_or_dict):
     return list_or_dict
 
 examples = []
-week = 12
+week = 13
 season = 2016
 example_creator = nfl_in_season_examples(season, week)
 example_creator.create()
