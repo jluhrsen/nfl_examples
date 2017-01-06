@@ -18,35 +18,12 @@ for season in range(2016, 2017):
 # 1 - go get data file and copy last week's games to all season game data file
 # 2 - get dvoa data
 # 3 - ensure team abrev. are consistent with the rest of the data file
+# 3.5 - go copy the normalized examples file from the nfl_examples repo so that the java guy has it where it
+#       expects it to be.  BUT, get this part automated!!!!
 # 4 - go run your java to process this normalized file with trained nets
 
-
-def pop_or_remove_unwanted_keys(list_or_dict):
-    """
-    will remove the elements from the list (by name) pop the entire KV from a dict
-    """
-
-    if isinstance(list_or_dict, dict):
-        list_or_dict.pop('HOMEteam')
-        list_or_dict.pop('AWAYteam')
-        list_or_dict.pop('Season')
-        list_or_dict.pop('Week')
-        list_or_dict.pop('HOMEscore')
-        list_or_dict.pop('AWAYscore')
-    elif isinstance(list_or_dict, list):
-        list_or_dict.remove('HOMEteam')
-        list_or_dict.remove('AWAYteam')
-        list_or_dict.remove('Season')
-        list_or_dict.remove('Week')
-        list_or_dict.remove('HOMEscore')
-        list_or_dict.remove('AWAYscore')
-    else:
-        raise Exception
-
-    return list_or_dict
-
 examples = []
-week = 13
+week = 17
 season = 2016
 example_creator = nfl_in_season_examples(season, week)
 example_creator.create()

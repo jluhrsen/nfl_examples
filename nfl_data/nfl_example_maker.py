@@ -87,3 +87,29 @@ class nfl_example_maker(object):
             new_dict[string + k] = original_dict[k]
 
         return new_dict
+
+def pop_or_remove_unwanted_keys(list_or_dict):
+    """
+    will remove the elements from the list (by name) pop the entire KV from a dict
+    """
+
+    # TODO: need a unittest for this function
+
+    if isinstance(list_or_dict, dict):
+        list_or_dict.pop('HOMEteam')
+        list_or_dict.pop('AWAYteam')
+        list_or_dict.pop('Season')
+        list_or_dict.pop('Week')
+        list_or_dict.pop('HOMEscore')
+        list_or_dict.pop('AWAYscore')
+    elif isinstance(list_or_dict, list):
+        list_or_dict.remove('HOMEteam')
+        list_or_dict.remove('AWAYteam')
+        list_or_dict.remove('Season')
+        list_or_dict.remove('Week')
+        list_or_dict.remove('HOMEscore')
+        list_or_dict.remove('AWAYscore')
+    else:
+        raise Exception
+
+    return list_or_dict
