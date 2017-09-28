@@ -6,7 +6,7 @@ __author__ = 'jamo'
 
 
 class nfl_example_maker(object):
-    def __init__(self, home_team, away_team, season, week):
+    def __init__(self, home_team, away_team, season, week, stat_list_file=None):
         # the week passed in constructor is the week we are making the example
         # for so we do not include that week in the calculations for averages
         # etc.
@@ -26,11 +26,13 @@ class nfl_example_maker(object):
         self.home_team_history = nfl_team_season_history()
         self.away_team_history = nfl_team_season_history()
         self.dvoa_stat_handler = nfl_dvoa_stats(local_stats=True)
+        self.stat_list_file = stat_list_file
 
         # reminder, we don't want to include self.week's games, just "up to" that week.
         self.home_team_game_list = self.home_team_history.get_games_up_to_specific_week(home_team, season, week - 1)
 
-        self.home_team_average_stats = self.home_team_history.calculate_averages(home_team, self.home_team_game_list)
+        self.home_team_average_stats = self.home_team_history.calculate_averages(home_team, self.home_team_game_list,
+                                                                                 stat_list_file)
         self.home_team_average_stats = self.append_string_to_dictionary_keys('HOME',
                                                                              self.home_team_average_stats.stat_dict)
 
@@ -41,7 +43,8 @@ class nfl_example_maker(object):
         # reminder, we don't want to include self.week's games, just "up to" that week.
         self.away_team_game_list = self.away_team_history.get_games_up_to_specific_week(away_team, season, week - 1)
 
-        self.away_team_average_stats = self.away_team_history.calculate_averages(away_team, self.away_team_game_list)
+        self.away_team_average_stats = self.away_team_history.calculate_averages(away_team, self.away_team_game_list,
+                                                                                 stat_list_file)
         self.away_team_average_stats = self.append_string_to_dictionary_keys('AWAY',
                                                                              self.away_team_average_stats.stat_dict)
 

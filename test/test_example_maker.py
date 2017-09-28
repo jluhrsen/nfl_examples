@@ -1,6 +1,7 @@
 from nfl_data.nfl_example_maker import *
 from nfl_data.nfl_team_example_stats import *
 from nfl_data.nfl_dvoa_stats import *
+from nfl_data.nfl_stat_list_from_file import *
 import unittest
 
 __author__ = 'jamo'
@@ -13,6 +14,25 @@ class TestExampleMaker(unittest.TestCase):
 
     def tearDown(self):
         pass
+
+    def test_example_with_trimmed_list_of_stats(self):
+        """
+        test the ability to create an example with some arbitrary list of stats, instead
+        of the full list of default stats
+        """
+
+        stats_for_example = nfl_stat_list_from_file('../resources/test/stat_list_file_1.txt').stat_list
+        # stats_for_example = nfl_team_example_stats(stat_list.get_stat_list())
+
+        number_of_stats_expected = len(stats_for_example) * 2 # because stats are calc'd for both teams in the matchup
+        number_of_stats_expected += nfl_dvoa_stats.num_dvoa_stats * 2 # see above
+        number_of_stats_expected += 2  # for expected score
+        number_of_stats_expected += 2  # for home and away team
+        number_of_stats_expected += 2  # for season and week
+
+        # TODO: nfl_example_maker needs to be able to handle a custom list of stats to use
+        example = nfl_example_maker('OAK', 'HOU', 2016, 11, '../resources/test/stat_list_file_1.txt')
+        self.assertEqual(number_of_stats_expected, len(example.example_data_dict))
 
     def test_example_has_right_data_size(self):
         """
@@ -32,10 +52,7 @@ class TestExampleMaker(unittest.TestCase):
         number_of_stats_expected += 2  # for season and week
 
         example = nfl_example_maker('SF', 'SEA', 2014, 13)
-        # print example.example
-        number_of_stats_found = len(example.example_data_dict)
-
-        self.assertEqual(number_of_stats_expected, number_of_stats_found)
+        self.assertEqual(number_of_stats_expected, len(example.example_data_dict))
 
     def test_time_of_possession(self):
         example = nfl_example_maker('NYG', 'ATL', 1998, 6)

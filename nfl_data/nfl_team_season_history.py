@@ -29,8 +29,8 @@ class nfl_team_season_history(object):
         return False
 
     @staticmethod
-    def calculate_averages(team, game_list):
-        average_stats = nfl_team_example_stats()
+    def calculate_averages(team, game_list, stat_list_file=None):
+        average_stats = nfl_team_example_stats(stat_list_file)
         for game in game_list:
             game_stats = nfl_local_data_handler().get_game(
                 game['HomeTeam'], game['AwayTeam'], int(game['Week']), int(game['Season']))

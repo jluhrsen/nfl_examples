@@ -1,10 +1,11 @@
 from nfl_data.nfl_stat_handler import *
+from nfl_stat_list_from_file import nfl_stat_list_from_file
 
 __author__ = 'jamo'
 
 
 class nfl_team_example_stats(object):
-    def __init__(self):
+    def __init__(self, stat_list_file=None):
         self.games_used = 0
         self.stat_dict = {}
         self.Date = 0.0
@@ -37,11 +38,9 @@ class nfl_team_example_stats(object):
         self.FirstDownsByPenalty = 0.0
         self.OffensivePlays = 0.0
         self.OffensiveYards = 0.0
-        # debug stats if needed
         self.OffensiveYardsPerPlay = 0.0
         self.Touchdowns = 0.0
         self.RushingAttempts = 0.0
-        # end of debug stats
         self.RushingYards = 0.0
         self.RushingYardsPerAttempt = 0.0
         self.RushingTouchdowns = 0.0
@@ -135,53 +134,53 @@ class nfl_team_example_stats(object):
         self.OpponentGiveaways = 0.0
         self.OpponentTakeaways = 0.0
         self.OpponentTurnoverDifferential = 0.0
-        self.stats_to_average = ['ScoreQuarter1', 'ScoreQuarter2',
-                                 'ScoreQuarter3', 'ScoreQuarter4', 'ScoreOvertime',
-                                 'TimeOfPossessionMinutes', 'TimeOfPossessionSeconds',
-                                 'TimeOfPossession', 'FirstDowns', 'FirstDownsByRushing',
-                                 'FirstDownsByPassing', 'FirstDownsByPenalty', 'OffensivePlays',
-                                 'OffensiveYards', 'OffensiveYardsPerPlay', 'Touchdowns',
-                                 'RushingAttempts', 'RushingYards', 'RushingYardsPerAttempt',
-                                 'RushingTouchdowns', 'PassingAttempts', 'PassingCompletions',
-                                 'PassingYards', 'PassingTouchdowns', 'PassingInterceptions',
-                                 'PassingYardsPerAttempt', 'PassingYardsPerCompletion',
-                                 'CompletionPercentage', 'PasserRating', 'ThirdDownAttempts',
-                                 'ThirdDownConversions', 'ThirdDownPercentage', 'FourthDownAttempts',
-                                 'FourthDownConversions', 'FourthDownPercentage', 'RedZoneAttempts',
-                                 'RedZoneConversions', 'GoalToGoAttempts', 'GoalToGoConversions',
-                                 'ReturnYards', 'Penalties', 'PenaltyYards', 'Fumbles', 'FumblesLost',
-                                 'TimesSacked', 'TimesSackedYards', 'QuarterbackHits',
-                                 'TacklesForLoss', 'Safeties', 'Punts', 'PuntYards', 'PuntAverage',
-                                 'Giveaways', 'Takeaways', 'TurnoverDifferential',
-                                 'OpponentScoreQuarter1', 'OpponentScoreQuarter2',
-                                 'OpponentScoreQuarter3', 'OpponentScoreQuarter4',
-                                 'OpponentScoreOvertime', 'OpponentTimeOfPossessionMinutes',
-                                 'OpponentTimeOfPossessionSeconds', 'OpponentTimeOfPossession',
-                                 'OpponentFirstDowns', 'OpponentFirstDownsByRushing',
-                                 'OpponentFirstDownsByPassing', 'OpponentFirstDownsByPenalty',
-                                 'OpponentOffensivePlays', 'OpponentOffensiveYards',
-                                 'OpponentOffensiveYardsPerPlay', 'OpponentTouchdowns',
-                                 'OpponentRushingAttempts', 'OpponentRushingYards',
-                                 'OpponentRushingYardsPerAttempt', 'OpponentRushingTouchdowns',
-                                 'OpponentPassingAttempts', 'OpponentPassingCompletions',
-                                 'OpponentPassingYards', 'OpponentPassingTouchdowns',
-                                 'OpponentPassingInterceptions', 'OpponentPassingYardsPerAttempt',
-                                 'OpponentPassingYardsPerCompletion',
-                                 'OpponentCompletionPercentage', 'OpponentPasserRating',
-                                 'OpponentThirdDownAttempts', 'OpponentThirdDownConversions',
-                                 'OpponentThirdDownPercentage', 'OpponentFourthDownAttempts',
-                                 'OpponentFourthDownConversions', 'OpponentFourthDownPercentage',
-                                 'OpponentRedZoneAttempts', 'OpponentRedZoneConversions',
-                                 'OpponentGoalToGoAttempts', 'OpponentGoalToGoConversions',
-                                 'OpponentReturnYards', 'OpponentPenalties', 'OpponentPenaltyYards',
-                                 'OpponentFumbles', 'OpponentFumblesLost', 'OpponentTimesSacked',
-                                 'OpponentTimesSackedYards', 'OpponentQuarterbackHits',
-                                 'OpponentTacklesForLoss', 'OpponentSafeties', 'OpponentPunts',
-                                 'OpponentPuntYards', 'OpponentPuntAverage', 'OpponentGiveaways',
-                                 'OpponentTakeaways', 'OpponentTurnoverDifferential']
-        # debug stats list
-        # self.stats_to_average = ['OffensiveYardsPerPlay','Touchdowns',
-        #                         'RushingAttempts']
+        if stat_list_file != None:
+            self.stats_to_average = nfl_stat_list_from_file(stat_list_file).stat_list
+        else:
+            self.stats_to_average = ['ScoreQuarter1', 'ScoreQuarter2',
+                                     'ScoreQuarter3', 'ScoreQuarter4', 'ScoreOvertime',
+                                     'TimeOfPossessionMinutes', 'TimeOfPossessionSeconds',
+                                     'TimeOfPossession', 'FirstDowns', 'FirstDownsByRushing',
+                                     'FirstDownsByPassing', 'FirstDownsByPenalty', 'OffensivePlays',
+                                     'OffensiveYards', 'OffensiveYardsPerPlay', 'Touchdowns',
+                                     'RushingAttempts', 'RushingYards', 'RushingYardsPerAttempt',
+                                     'RushingTouchdowns', 'PassingAttempts', 'PassingCompletions',
+                                     'PassingYards', 'PassingTouchdowns', 'PassingInterceptions',
+                                     'PassingYardsPerAttempt', 'PassingYardsPerCompletion',
+                                     'CompletionPercentage', 'PasserRating', 'ThirdDownAttempts',
+                                     'ThirdDownConversions', 'ThirdDownPercentage', 'FourthDownAttempts',
+                                     'FourthDownConversions', 'FourthDownPercentage', 'RedZoneAttempts',
+                                     'RedZoneConversions', 'GoalToGoAttempts', 'GoalToGoConversions',
+                                     'ReturnYards', 'Penalties', 'PenaltyYards', 'Fumbles', 'FumblesLost',
+                                     'TimesSacked', 'TimesSackedYards', 'QuarterbackHits',
+                                     'TacklesForLoss', 'Safeties', 'Punts', 'PuntYards', 'PuntAverage',
+                                     'Giveaways', 'Takeaways', 'TurnoverDifferential',
+                                     'OpponentScoreQuarter1', 'OpponentScoreQuarter2',
+                                     'OpponentScoreQuarter3', 'OpponentScoreQuarter4',
+                                     'OpponentScoreOvertime', 'OpponentTimeOfPossessionMinutes',
+                                     'OpponentTimeOfPossessionSeconds', 'OpponentTimeOfPossession',
+                                     'OpponentFirstDowns', 'OpponentFirstDownsByRushing',
+                                     'OpponentFirstDownsByPassing', 'OpponentFirstDownsByPenalty',
+                                     'OpponentOffensivePlays', 'OpponentOffensiveYards',
+                                     'OpponentOffensiveYardsPerPlay', 'OpponentTouchdowns',
+                                     'OpponentRushingAttempts', 'OpponentRushingYards',
+                                     'OpponentRushingYardsPerAttempt', 'OpponentRushingTouchdowns',
+                                     'OpponentPassingAttempts', 'OpponentPassingCompletions',
+                                     'OpponentPassingYards', 'OpponentPassingTouchdowns',
+                                     'OpponentPassingInterceptions', 'OpponentPassingYardsPerAttempt',
+                                     'OpponentPassingYardsPerCompletion',
+                                     'OpponentCompletionPercentage', 'OpponentPasserRating',
+                                     'OpponentThirdDownAttempts', 'OpponentThirdDownConversions',
+                                     'OpponentThirdDownPercentage', 'OpponentFourthDownAttempts',
+                                     'OpponentFourthDownConversions', 'OpponentFourthDownPercentage',
+                                     'OpponentRedZoneAttempts', 'OpponentRedZoneConversions',
+                                     'OpponentGoalToGoAttempts', 'OpponentGoalToGoConversions',
+                                     'OpponentReturnYards', 'OpponentPenalties', 'OpponentPenaltyYards',
+                                     'OpponentFumbles', 'OpponentFumblesLost', 'OpponentTimesSacked',
+                                     'OpponentTimesSackedYards', 'OpponentQuarterbackHits',
+                                     'OpponentTacklesForLoss', 'OpponentSafeties', 'OpponentPunts',
+                                     'OpponentPuntYards', 'OpponentPuntAverage', 'OpponentGiveaways',
+                                     'OpponentTakeaways', 'OpponentTurnoverDifferential']
 
     def include_stats_in_average(self, team, game_stats):
         """
