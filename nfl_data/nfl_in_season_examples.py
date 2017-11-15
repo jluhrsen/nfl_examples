@@ -11,12 +11,13 @@ class nfl_in_season_examples(object):
            Class to create all examples in a given season and write to a file.
     """
 
-    def __init__(self, season=2014, week=-1):
+    def __init__(self, season=2014, week=-1, stat_list_file=None):
 
         self.week = week
         if self.week == -1:
             self.week = "ALL"
         self.season = season
+        self.stat_list_file = stat_list_file
         self.season_examples = []
         self.season_examples_file = '../resources/data/' + str(season) + '_week_' + str(self.week) + '_examples.csv'
         # TODO: write a test for this write_to_file flag
@@ -35,7 +36,8 @@ class nfl_in_season_examples(object):
 
         for matchup in season_matchups:
             if (self.week != "ALL" and str(self.week) == matchup['Week']) or self.week == "ALL":
-                ex = nfl_example_maker(matchup['HomeTeam'], matchup['AwayTeam'], self.season, int(matchup['Week']))
+                ex = nfl_example_maker(matchup['HomeTeam'], matchup['AwayTeam'], self.season, int(matchup['Week']),
+                                       self.stat_list_file)
                 print(matchup)
                 self.season_examples.append(ex)
 

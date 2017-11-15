@@ -6,12 +6,14 @@ from nfl_data.data_normalizer import *
 
 __author__ = 'jamo'
 
-'''
 # this loop can create examples in bulk.
-for season in range(2016, 2017):
-    example_creator = nfl_in_season_examples(season)
-    example_creator.create()
-'''
+# for season in range(1985, 2017):
+#     example_creator = \
+#         nfl_in_season_examples(season, stat_list_file='../resources/best_guess_for_limited_feature_set.txt')
+#     example_creator.create()
+#
+# exit(1)
+
 
 #STEPS:
 # 0 - update week variable accordingly
@@ -23,9 +25,10 @@ for season in range(2016, 2017):
 # 4 - go run your java to process this normalized file with trained nets
 
 examples = []
-week = 17
+week = 10
 season = 2016
-example_creator = nfl_in_season_examples(season, week)
+example_creator = nfl_in_season_examples(season, week,
+                                         stat_list_file='../resources/best_guess_for_limited_feature_set.txt')
 example_creator.create()
 
 # the normal example file uses season, week, home, away as column headers but those are only for readability.  They

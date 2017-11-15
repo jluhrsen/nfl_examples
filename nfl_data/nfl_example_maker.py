@@ -74,7 +74,7 @@ class nfl_example_maker(object):
 
         self.ordered_example_keys = list(self.example.keys())
 
-        # print 'Example:\n\n' + str(self.example)
+        # print('Example:\n\n' + str(self.example))
 
     @staticmethod
     def append_string_to_dictionary_keys(string, original_dict):

@@ -30,7 +30,6 @@ class TestExampleMaker(unittest.TestCase):
         number_of_stats_expected += 2  # for home and away team
         number_of_stats_expected += 2  # for season and week
 
-        # TODO: nfl_example_maker needs to be able to handle a custom list of stats to use
         example = nfl_example_maker('OAK', 'HOU', 2016, 11, '../resources/test/stat_list_file_1.txt')
         self.assertEqual(number_of_stats_expected, len(example.example_data_dict))
 
